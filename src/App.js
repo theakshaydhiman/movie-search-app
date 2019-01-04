@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as actions from './actions/moviesActions';
 
 class App extends Component {
-  state = {}
+  componentDidMount() {
+    const { getMovies } = this.props;
+    getMovies();
+  }
 
   render() {
     return (
@@ -12,4 +18,12 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  getMovies: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  movies: state.movies.movies,
+});
+
+export default connect(mapStateToProps, { ...actions })(App);
