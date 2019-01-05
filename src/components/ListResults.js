@@ -4,11 +4,23 @@ import PropTypes from 'prop-types';
 import * as actions from '../actions/moviesActions';
 
 class ListResults extends React.Component {
-  state = {}
+  state = {
+    yearReverse: true,
+  }
+
+  handleReverse = () => {
+    const { yearReverse } = this.state;
+    this.setState({ yearReverse: !yearReverse });
+  }
 
   render() {
     const { movies } = this.props;
-    movies.sort((a, b) => b.Year - a.Year);
+    const { yearReverse } = this.state;
+    if (yearReverse) {
+      movies.sort((a, b) => b.Year - a.Year);
+    } else {
+      movies.sort((a, b) => a.Year - b.Year);
+    }
     const results = movies.map(m => (
       <div className="results-item" key={m.imdbID}>
         <div className="card">
@@ -29,9 +41,12 @@ class ListResults extends React.Component {
       </div>
     ));
     return (
-      <div className="results-items">
-        {results}
-      </div>
+      <>
+        {(results.length > 0) ? <span role="button" className="btn-small" tabIndex={0} onClick={this.handleReverse} onKeyDown={this.handleReverse}>Sort Year</span> : null}
+        <div className="results-items">
+          {results}
+        </div>
+      </>
     );
   }
 }
