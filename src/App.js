@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from './actions/moviesActions';
 import AddForm from './components/AddForm';
+import ListResults from './components/ListResults';
 
 class App extends Component {
   state = {}
@@ -10,9 +11,10 @@ class App extends Component {
   render() {
     const { getMovies } = this.props;
     return (
-      <div className="App">
+      <div className="container">
         <h1>Movie Search</h1>
         <AddForm search={query => getMovies(query)} />
+        <ListResults />
       </div>
     );
   }

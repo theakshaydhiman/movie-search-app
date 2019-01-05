@@ -22,11 +22,11 @@ class AddForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="movie-title">
-              Search
-              <input type="text" name="title" id="movie-title" value={title} onChange={this.handleChange} />
-            </label>
+          <div className="row">
+            <div className="col s12 input-field">
+              <label htmlFor="title">Search</label>
+              <input type="text" name="title" id="title" value={title} onChange={this.handleChange} />
+            </div>
           </div>
         </form>
       </div>
