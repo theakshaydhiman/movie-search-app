@@ -25,13 +25,22 @@ code {
   max-width: 215px;
 }
 
-.sugg-items {
+#title {
   position: relative;
+}
+
+.sugg-items {
+  position: absolute;
+  z-index: 999;
   box-shadow: 0 2px 3px rgba(0,0,0,0.2);
   margin-top: -10px;
+  margin-left: 45px;
 }
 
 .sugg-items li {
+  position: relative;
+  z-index: 99;
+  background-color: #ffffff;
   padding: 10px;
   border-bottom: 0.5px solid rgba(0,0,0,0.2);
   border-top: 0.5px solid rgba(0,0,0,0.2);

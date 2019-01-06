@@ -48,7 +48,7 @@ class ListResults extends React.Component {
     }
     return (
       <>
-        {(results.length > 0 && results.constructor === Array) ? <span role="button" className="btn-small" tabIndex={0} onClick={this.handleReverse} onKeyDown={this.handleReverse}>Sort Year</span> : null}
+        {(results.length > 0 && results.constructor === Array) ? <button type="button" className="btn-small" onClick={this.handleReverse} onKeyDown={this.handleReverse}>Sort By Year</button> : null}
         <div className="results-items">
           {results}
         </div>
