@@ -41,7 +41,7 @@ class AddForm extends React.Component {
   getSuggestions = () => {
     let suggestions = [];
     const { title } = this.state;
-    axios.get(`http://www.omdbapi.com/?s=${title}&apikey=5ce2c41a&type=movie&page=1`)
+    axios.get(`https://www.omdbapi.com/?s=${title}&apikey=5ce2c41a&type=movie&page=1`)
       .then((res) => {
         if (res.data.Response === 'True' && title.length > 0) {
           suggestions = res.data.Search.map(m => m.Title);
