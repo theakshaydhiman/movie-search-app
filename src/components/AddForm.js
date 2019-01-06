@@ -80,11 +80,17 @@ class AddForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="col s12 input-field">
+            <div className="col s12 m8 input-field">
               <i className="material-icons prefix">search</i>
-              <input type="text" name="title" id="title" value={title} onChange={this.handleChange} onKeyDown={this.handleChange} onFocus={this.handleClick} onBlur={this.handleClick} />
+              <input type="text" name="title" id="title" value={title} autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleChange} onFocus={this.handleClick} onBlur={this.handleClick} />
               <label htmlFor="title">Search</label>
               {this.renderSuggestions()}
+            </div>
+            <div className="col s12 m4" style={{ marginTop: '20px' }}>
+              <button type="submit" className="btn waves-effect waves-light">
+                <i className="material-icons left">search</i>
+                Search
+              </button>
             </div>
           </div>
         </form>
